@@ -58,11 +58,7 @@
 	str.prototype.camelCase = function(splitter) {
 		var a = this.split(splitter), result = [a[0]];
 		for (var i = 1; i<a.length; i++)
-			result.push(
-							[
-								a[i].substring(0, 1).ucase(), a[i].substring(1)
-							].join("")
-						);
+			result.push([a[i].substring(0, 1).ucase(), a[i].substring(1)].join(""));
 		return result.join("");
 	};
 
@@ -72,10 +68,7 @@
 		var abcd = alphabet, result = [], s = this.split("");
 		rot.compileDict(x);
 		for (var d = 0; d < s.length; d++)
-			result.push((abcd.indexOf(s[d]) === -1) ?
-													s[d] :
-													rotDict[abcd.indexOf(s[d])]
-						);
+			result.push((abcd.indexOf(s[d]) === -1) ? s[d] : rotDict[abcd.indexOf(s[d])]);
 		return result.join("");
 	};
 
@@ -84,10 +77,7 @@
 		var abcd = alphabet, result = [], s = this.split("");
 		rot.compileDict(x);
 		for (var d = 0; d < s.length; d++)
-			result.push((rotDict.indexOf(s[d]) === -1) ?
-														s[d] :
-														abcd[rotDict.indexOf(s[d])]
-						);
+			result.push((rotDict.indexOf(s[d]) === -1) ? s[d] : abcd[rotDict.indexOf(s[d])]);
 		return result.join("");
 	};
 
