@@ -3,7 +3,7 @@
 	Code by /thezillion/
 */
 
-!function(str, doc, nav, win, func) {
+!function(str, doc, nav, win, arr) {
 
 	// An array containing the alphabet in upper and lower case.
 	var alphabet = [];
@@ -39,11 +39,13 @@
 
 	str.prototype.lcase = function () { return this.toLowerCase(); }
 	str.prototype.ucase = function () { return this.toUpperCase(); }
+	str.prototype.sp = function () { return this.split(""); }
+	arr.prototype.j = function () { return this.join(""); }
 
 	// Flipping the case of each character
 	str.prototype.flipCase = function () {
 		var result = [];
-		this.split("").forEach(function (index) {
+		this.sp().forEach(function (index) {
 			if (isAlpha(index)) {
 				if (checkCase(index) === "u")
 					result.push(index.lcase());
@@ -51,34 +53,34 @@
 					result.push(index.ucase());
 			}
 		});
-		return result.join("");
+		return result.j();
 	};
 
 	// Camel casing
 	str.prototype.camelCase = function(splitter) {
 		var a = this.split(splitter), result = [a[0]];
 		for (var i = 1; i<a.length; i++)
-			result.push([a[i].substring(0, 1).ucase(), a[i].substring(1)].join(""));
-		return result.join("");
+			result.push([a[i].substring(0, 1).ucase(), a[i].substring(1)].j());
+		return result.j();
 	};
 
 	// ROT functions
 	// ROT Encode function
 	str.prototype.encRot = function(x) {
-		var abcd = alphabet, result = [], s = this.split("");
+		var abcd = alphabet, result = [], s = this.sp();
 		rot.compileDict(x);
 		for (var d = 0; d < s.length; d++)
 			result.push((abcd.indexOf(s[d]) === -1) ? s[d] : rotDict[abcd.indexOf(s[d])]);
-		return result.join("");
+		return result.j();
 	};
 
 	// ROT Decode function
 	str.prototype.decRot = function(x) {
-		var abcd = alphabet, result = [], s = this.split("");
+		var abcd = alphabet, result = [], s = this.sp();
 		rot.compileDict(x);
 		for (var d = 0; d < s.length; d++)
 			result.push((rotDict.indexOf(s[d]) === -1) ? s[d] : abcd[rotDict.indexOf(s[d])]);
-		return result.join("");
+		return result.j();
 	};
 
 	// Search functions
@@ -134,16 +136,8 @@
 			rotDict = [];
 			for (var a = 0; a<rotHalf*2; a++) {
 				var c = a + x;
-				rotDict.push(c < rotHalf  ?
-									(a < rotHalf ?
-											abcd[c].ucase() :
-							 				abcd[c].lcase())
-									:
-							 		(a < rotHalf ?
-							 				abcd[c - rotHalf].ucase() :
-							 				abcd[c - rotHalf].lcase())
-							);
+				rotDict.push(c < rotHalf  ? (a < rotHalf ? abcd[c].ucase() : abcd[c].lcase()) : (a < rotHalf ? abcd[c - rotHalf].ucase() : abcd[c - rotHalf].lcase()));
 			}
 		}
 	};
-}(String, document, navigator, window, Function);
+}(String, document, navigator, window, Array);
