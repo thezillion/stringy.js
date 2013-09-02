@@ -1,0 +1,39 @@
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+		<script type="text/javascript" src="source/stringy.js"></script>
+		<script type="text/javascript">
+			window.addEventListener("load", function () {
+				// Flip case
+				console.log('The Quick Brown Fox Jumps Over The Lazy Dog.'.flipCase());
+
+				// Camel case
+				console.log('the quick brown fox jumps over the lazy dog.'.camelCase(" "));
+
+				// Encoding rot 13
+				console.log('the quick brown fox jumps over the lazy dog.'.encRot(13));
+
+				// Decoding rot 13
+				console.log('gur dhvpx oebja sbk whzcf bire gur ynml qbt.'.decRot(13));
+
+				// Search for the first occurence of the character 'u' and get it's first previous character
+				console.log('the quick brown fox jumps over the lazy dog.'.s('u').getPrevChar(1));
+
+				// Search for the first occurence of the character 'u' and get it's position
+				console.log('the quick brown fox jumps over the lazy dog.'.s('u').getPos());
+
+				// Global search for the character 'u' and replace it by 'r'
+				console.log('the quick brown fox jumps over the lazy dog.'.s(/u/g).r("r"));
+
+				//  Search for the first occurence of the character 'u' and replace it by it's ROT2 encoding
+				console.log('the quick brown fox jumps over the lazy dog.'.s("u").encRot(2));
+
+				//  Search for the first occurence of the character 'u' and replace it by it's ROT2 decoding
+				console.log('the quick brown fox jumps over the lazy dog.'.s("u").decRot(2));
+			});
+		</script>
+	</body>
+</html>
