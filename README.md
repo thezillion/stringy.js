@@ -7,28 +7,28 @@ Usage
 -----
 
 ### Flip case
-> <"The Quick Brown Fox Jumps Over The Lazy Dog.".flipCase();>
+> <code>"The Quick Brown Fox Jumps Over The Lazy Dog.".flipCase();</code>
 
 ### Camel case
-> <"the quick brown fox jumps over the lazy dog.".camelCase(" ");>
+> <code>"the quick brown fox jumps over the lazy dog.".camelCase(" ");</code>
 
 ### Encoding rot 13
-> <"the quick brown fox jumps over the lazy dog.".encRot(13);>
+> <code>"the quick brown fox jumps over the lazy dog.".encRot(13);</code>
 
 ### Decoding rot 13
-> <"gur dhvpx oebja sbk whzcf bire gur ynml qbt.".decRot(13);>
+> <code>"gur dhvpx oebja sbk whzcf bire gur ynml qbt.".decRot(13);</code>
 
 ### Search for the first occurence of the character 'u' and get it's first previous character
-> <"the quick brown fox jumps over the lazy dog.".s('u').getPrevChar(1);>
+> <code>"the quick brown fox jumps over the lazy dog.".s('u').getPrevChar(1);</code>
 
 ### Search for the first occurence of the character 'u' and get it's position
-> <"the quick brown fox jumps over the lazy dog.".s('u').getPos();>
+> <code>"the quick brown fox jumps over the lazy dog.".s('u').getPos();</code>
 
 ### Global search for the character 'u' and replace it by 'r'
-> <"the quick brown fox jumps over the lazy dog.".s(/u/g).r("r");>
+> <code>"the quick brown fox jumps over the lazy dog.".s(/u/g).r("r");</code>
 
 ###  Search for the first occurence of the character 'u' and replace it by it's ROT2 encoding
-> <"the quick brown fox jumps over the lazy dog.".s("u").encRot(2);>
+> <code>"the quick brown fox jumps over the lazy dog.".s("u").encRot(2);</code>
 
 ###  Search for the first occurence of the character 'u' and replace it by it's ROT2 decoding
-> <"the quick brown fox jumps over the lazy dog.".s("u").decRot(2);>
+> <code>"the quick brown fox jumps over the lazy dog.".s("u").decRot(2);</code>
